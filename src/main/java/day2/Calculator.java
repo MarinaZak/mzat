@@ -10,19 +10,19 @@ public class Calculator {
         System.out.println(divide(a,b));
     }
 
-    private static int add(int a, int b) {
+    public static int add(int a, int b) {
         return a+b;
     }
 
-    private static int minus(int a, int b) {
+    public static int minus(int a, int b) {
         return a-b;
     }
 
-    private static int mult(int a, int b) {
+    public static int mult(int a, int b) {
         return a*b;
     }
 
-    private static int divide(int a, int b) {
+    public static int divide(int a, int b) {
         return a/b;
     }
 }

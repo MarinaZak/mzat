@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="all test SUITE" verbose="5" data-provider-thread-count="6">
+    <test name="parallel_test" thread-count="10" parallel="methods">
+        <packages>
+            <package name="day8.*"></package>
+        </packages>
+    </test>
+</suite>
