@@ -12,11 +12,11 @@ public class Main {
     private static Object get(Object object, String fieldname){
         Class clazz = object.getClass();
         System.out.println(clazz);
-        for(Field f.clazz.getDeclaredFields()){
+        for(Field f:object.getClass().getDeclaredFields()){
             System.out.println(f);
             if(f.getName().equals(fieldname)){
                 try{
-                    f.setAssesible(true);
+                    f.setAccessible(true);
                     Object res = f.get(object);
                     return res;
                 } catch (IllegalAccessException e){
@@ -27,16 +27,17 @@ public class Main {
         return null;
     }
 
-    private static void put(User object, String fieldname, Object value){
-        for (Field f.clazz.getClass().getDeclaredFields()){
+    private static Object put(User object, String fieldname, Object value){
+        for(Field f:object.getClass().getDeclaredFields()){
             if (f.getName().equals(fieldname)) {
                 try {
-                    f.setAssesible(true);
+                    f.setAccessible(true);
                     return f.get(object);
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
             }
         }
+        return null;
     }
 }

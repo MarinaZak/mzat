@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 @Entity
 public class Student {
 
-    @id
+//    @id
     private Integer id_student;
     private String name;
     private Date bd;

@@ -8,6 +8,6 @@ public class Main {
         user.setDb(new Date());
         String jsonUser = user.asJson().toString();
         System.out.println(jsonUser);
-        System.out.println(user.makeMyFromJsonString(User.class.jsonUser));
+        System.out.println(user.makeMyFromJsonString(User.class,jsonUser));
     }
 }

@@ -25,9 +25,9 @@ public class Main {
 
         System.out.println(json);
         ObjectMapper mapper = new ObjectMapper();
-        User user = new User()
+        User user = new User();
         try {
-            user = mapper.readValue(inputString, user.class);
+            user = mapper.readValue(inputString, User.class);
             System.out.println(user);
         } catch (IOException e){
             e.printStackTrace();
@@ -56,7 +56,7 @@ public class Main {
         out.println(outputJson);
         out.close();
 
-        Files.write(outputFile.outputJson.toString());
+//        Files.write(outputFile.outputJson.toString());
 
     }
 }

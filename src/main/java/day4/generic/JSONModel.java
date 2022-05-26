@@ -4,33 +4,43 @@ import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.JsonSerializable;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import  org.json.JSONObject;
-import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.ObjectMapper;import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.json.JSONObject;
+
+import java.io.IOException;
 
 public abstract class JSONModel<T> {
     static ObjectMapper mapper;
     ObjectMapper getObjectMapper(){
         if(mapper==null){
-            mapper=intitMapper();
+            mapper=initMapper();
         }
         return mapper;
     }
 
-    private ObjectMapper intitMapper() {
+    private ObjectMapper initMapper() {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.setSerializationInclusion(JsonSerialize.Inclusion.NON_DEFAULT);
-        return  mapper;
+        //custom param
+        mapper.setSerializationInclusion(JsonSerialize.Inclusion.NON_NULL);
+        return mapper;
     }
 
-    public JSONObject asJson(){
+    public JSONObject asJson() {
         try {
-            return new JSONObject(getObjectMapper().getObjectMapper().writeValueAsString(this));
-        } catch (i0Exception e){
+            return new JSONObject(getObjectMapper().writeValueAsString(this));
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return new JSONObject();
     }
 
-    public static <T> makeMyFromJsonString(Class<T> currenyClass, String jsonObjectString){
-        return getObjectMapper().readValue(jsonObjectString, currenyClass);
+    public  <T> T makeMyFromJsonString(Class<T> currentClass, String jsonObjectString) {
+        try {
+            return getObjectMapper().readValue(jsonObjectString, currentClass);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

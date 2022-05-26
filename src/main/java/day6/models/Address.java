@@ -1,12 +1,15 @@
 package day6.models;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import java.util.Set;
 
 @Entity
 public class Address {
 
-    @id
+//    @id
     private Integer id_address;
     private String country;
     private String city;
