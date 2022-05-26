@@ -22,7 +22,7 @@ public class GooglePOFactoryVideoTest {
         GoogleBOFactory googleBO=new GoogleBOFactory(DriverProvider.driver);
         googleBO
                 .goToGoogle()
-                .search("search Query Text")
+                .search("sonic 2022")
                 .printSearchResult()
                 .clickFirstResult()
                 .validateURLHost();
@@ -33,7 +33,7 @@ public class GooglePOFactoryVideoTest {
         GoogleBOFactory googleBO=new GoogleBOFactory(DriverProvider.driver);
         googleBO
                 .goToGoogle()
-                .search("search Query Text")
+                .search("sonic 2022")
                 .printSearchResult()
                 .clickFirstResult()
                 .validateURLHost()
