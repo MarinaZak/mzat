@@ -1,12 +1,13 @@
 package day6.models;
 
+import javax.persistence.Id;
 import java.util.Date;
 import javax.persistence.Entity;
 
 @Entity
 public class Student {
 
-//    @id
+    @Id
     private Integer id_student;
     private String name;
     private Date bd;
