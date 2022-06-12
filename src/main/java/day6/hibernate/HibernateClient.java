@@ -26,23 +26,26 @@ public class HibernateClient {
         session.getTransaction().commit();
         System.out.println(readStudent);
 
-        Student updateStudent = new Student();
+        Student updateStudent = session.get(Student.class,1);
         updateStudent.setName("NewName");
         session.beginTransaction();
-        session.update(student);
+        session.update(updateStudent);
         System.out.println(session.get(Student.class,1));
         session.getTransaction().commit();
 
-        Student deleteStudent = new Student();
+        Student deleteStudent = session.get(Student.class,1);
+        session.beginTransaction();
         session.delete(deleteStudent);
         System.out.println(session.get(Student.class,1));
         session.getTransaction().commit();
 
         Address address = new Address();
+        session.beginTransaction();
         address.setId_address(1);
         address.setCountry("Ukraine");
         address.setCity("Lviv");
         session.save(address);
+        session.getTransaction().commit();
 
         session.close();
     }
